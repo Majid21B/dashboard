@@ -362,7 +362,7 @@ function renderDashboard(rows) {
   const cgrid = document.getElementById('commentsGrid');
   cgrid.innerHTML = '';
   const allComments = [
-    ...comments.map(r => ({ meta: `${r["اسم ولي الأمر"]} — ${r["الصف"]}`, text: r["الملاحظة"] })),
+    ...comments.map(r => ({ meta: `${r["اسم ولي الأمر"]} — ${r["اسم العضو"]}`, text: r["الملاحظة"] })),
     ...generalComments.map(r => ({ meta: `${r["اسم ولي الأمر"]} — ملاحظة عامة`, text: r["ملاحظات عامة"] }))
   ].slice(0, 6);
 
