@@ -39,7 +39,7 @@ body {
 .topbar {
   background: var(--bg2);
   border-bottom: 0.5px solid var(--border);
-  padding: 0.9rem 2rem;
+  padding: 0.9rem 1.25rem;
   display: flex; align-items: center; justify-content: space-between;
   position: sticky; top: 0; z-index: 10;
   backdrop-filter: blur(10px);
@@ -51,17 +51,17 @@ body {
   border: 0.5px solid var(--border2);
   display: flex; align-items: center; justify-content: center; font-size: 16px;
 }
-.topbar-title { font-size: 15px; font-weight: 700; color: var(--text1); }
-.topbar-sub   { font-size: 11px; color: var(--text2); }
-.topbar-right { display: flex; align-items: center; gap: 10px; }
+.topbar-title { font-size: 14px; font-weight: 700; color: var(--text1); }
+.topbar-sub   { font-size: 10px; color: var(--text2); }
+.topbar-right { display: flex; align-items: center; gap: 8px; }
 .refresh-btn {
-  padding: 6px 14px; border-radius: 6px;
+  padding: 6px 12px; border-radius: 6px;
   background: var(--bg3); border: 0.5px solid var(--border2);
   color: var(--accent2); font-family: 'Tajawal', sans-serif;
   font-size: 12px; cursor: pointer; transition: all 0.2s;
 }
 .refresh-btn:hover { background: var(--bg4); }
-.last-update { font-size: 11px; color: var(--text2); }
+.last-update { font-size: 10px; color: var(--text2); }
 
 /* LOADING */
 .loading {
@@ -77,14 +77,14 @@ body {
 .loading p { font-size: 13px; color: var(--text2); }
 
 /* MAIN */
-.main { padding: 1.5rem 2rem; max-width: 1200px; margin: 0 auto; }
-@media(max-width:768px){ .main { padding: 1rem; } }
+.main { padding: 1.25rem 1rem; max-width: 1200px; margin: 0 auto; }
 
 /* METRICS */
-.metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 10px; margin-bottom: 1.25rem; }
+.metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 1.25rem; }
+@media(min-width:640px){ .metrics { grid-template-columns: repeat(4, 1fr); } }
 .metric {
   background: var(--bg2); border: 0.5px solid var(--border);
-  border-radius: 12px; padding: 1rem 1.1rem;
+  border-radius: 12px; padding: 1rem;
   position: relative; overflow: hidden; transition: border-color 0.2s;
 }
 .metric:hover { border-color: var(--border2); }
@@ -94,7 +94,7 @@ body {
   background: radial-gradient(circle, var(--glow), transparent 70%);
 }
 .m-label { font-size: 11px; color: var(--text2); margin-bottom: 8px; letter-spacing: 0.3px; }
-.m-value { font-size: 26px; font-weight: 700; line-height: 1; }
+.m-value { font-size: 24px; font-weight: 700; line-height: 1; }
 .m-sub   { font-size: 11px; color: var(--text2); margin-top: 4px; }
 .c-blue  { color: var(--accent2); }
 .c-green { color: var(--green); }
@@ -102,8 +102,8 @@ body {
 .c-red   { color: var(--red); }
 
 /* GRID */
-.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 1.25rem; }
-@media(max-width:640px){ .grid2 { grid-template-columns: 1fr; } }
+.grid2 { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 1.25rem; }
+@media(min-width:640px){ .grid2 { grid-template-columns: 1fr 1fr; } }
 
 .card {
   background: var(--bg2); border: 0.5px solid var(--border);
@@ -117,29 +117,30 @@ body {
 .card-hd::before {
   content: ''; width: 3px; height: 11px;
   background: var(--accent); border-radius: 99px;
+  flex-shrink: 0;
 }
 
 /* DEPT BARS */
 .dept-rows { display: flex; flex-direction: column; gap: 11px; }
 .dept-row  { display: flex; align-items: center; gap: 8px; }
-.dept-lbl  { font-size: 11px; color: var(--text2); width: 130px; flex-shrink: 0; text-align: right; }
+.dept-lbl  { font-size: 11px; color: var(--text2); width: 120px; flex-shrink: 0; text-align: right; }
 .dept-bg   { flex: 1; height: 4px; background: var(--bg3); border-radius: 99px; overflow: hidden; }
 .dept-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
 .dept-num  { font-size: 11px; color: var(--accent2); width: 24px; font-weight: 600; }
 
 /* STAFF TABLE */
-.tbl-wrap { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; }
-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+.tbl-wrap { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 500px; }
 thead tr { background: var(--bg3); }
-th { padding: 9px 14px; text-align: right; font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.4px; }
-td { padding: 9px 14px; border-top: 0.5px solid var(--border); color: var(--text1); }
+th { padding: 9px 12px; text-align: right; font-size: 11px; font-weight: 600; color: var(--text2); text-transform: uppercase; letter-spacing: 0.4px; }
+td { padding: 9px 12px; border-top: 0.5px solid var(--border); color: var(--text1); }
 tr:hover td { background: rgba(56,139,253,0.03); }
 .rn { color: var(--text2); font-size: 12px; }
 .r1 { color: #e3b341; } .r2 { color: #8b949e; } .r3 { color: #c07d3b; }
 .nm { font-weight: 500; }
 .sb { font-size: 12px; color: var(--text2); }
 .bar-w { display: flex; align-items: center; gap: 7px; }
-.bar-bg2 { width: 60px; height: 4px; background: var(--bg3); border-radius: 99px; overflow: hidden; }
+.bar-bg2 { width: 50px; height: 4px; background: var(--bg3); border-radius: 99px; overflow: hidden; }
 .bar-f2  { height: 100%; border-radius: 99px; }
 .sn { font-size: 12px; color: var(--text2); width: 28px; font-weight: 600; }
 .badge { display: inline-block; padding: 2px 8px; border-radius: 99px; font-size: 11px; font-weight: 600; }
@@ -148,8 +149,8 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 .br  { background: rgba(248,81,73,0.1);  color: var(--red);   border: 0.5px solid rgba(248,81,73,0.2); }
 
 /* COMMENTS */
-.comments-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1.25rem; }
-@media(max-width:640px){ .comments-grid { grid-template-columns: 1fr; } }
+.comments-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 1.25rem; }
+@media(min-width:640px){ .comments-grid { grid-template-columns: 1fr 1fr; } }
 .comment {
   background: var(--bg2); border: 0.5px solid var(--border);
   border-radius: 10px; padding: 0.9rem 1rem; transition: border-color 0.2s;
@@ -171,6 +172,24 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 .metric:nth-child(3){animation-delay:.15s}.metric:nth-child(4){animation-delay:.2s}
 
 .empty-state { text-align: center; padding: 3rem; color: var(--text2); font-size: 14px; }
+
+.section-hd {
+  font-size: 11px; font-weight: 600; color: var(--text2);
+  text-transform: uppercase; letter-spacing: 0.7px;
+  margin-bottom: 10px; display: flex; align-items: center; justify-content: space-between;
+}
+.section-hd::before {
+  content: ''; width: 3px; height: 11px;
+  background: var(--accent); border-radius: 99px; flex-shrink: 0;
+}
+.section-hd-inner { display: flex; align-items: center; gap: 7px; }
+.toggle-btn {
+  background: transparent; border: 0.5px solid var(--border2);
+  color: var(--accent2); padding: 3px 10px; border-radius: 6px;
+  font-family: 'Tajawal', sans-serif; font-size: 11px; cursor: pointer;
+  transition: all 0.2s; white-space: nowrap;
+}
+.toggle-btn:hover { background: var(--bg4); }
 </style>
 </head>
 <body>
@@ -197,6 +216,7 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 
   <div id="content" style="display:none">
     <div class="metrics" id="metrics"></div>
+
     <div class="grid2">
       <div class="card">
         <div class="card-hd">توزيع التقييمات</div>
@@ -205,7 +225,9 @@ tr:hover td { background: rgba(56,139,253,0.03); }
           <div class="leg"><span class="leg-dot" style="background:var(--amber)"></span>جيد</div>
           <div class="leg"><span class="leg-dot" style="background:var(--red)"></span>يحتاج تطوير</div>
         </div>
-        <div style="position:relative;height:190px;"><canvas id="pieChart"></canvas></div>
+        <div style="position:relative;max-width:220px;margin:0 auto;">
+          <canvas id="pieChart"></canvas>
+        </div>
       </div>
       <div class="card">
         <div class="card-hd">تقييم القسم — المحاور</div>
@@ -213,14 +235,31 @@ tr:hover td { background: rgba(56,139,253,0.03); }
       </div>
     </div>
 
-    <div class="card-hd" style="margin-bottom:10px;">ترتيب الأعضاء حسب التقييم</div>
+    <!-- ترتيب الأعضاء -->
+    <div class="section-hd" style="margin-bottom:10px;">
+      <div class="section-hd-inner">ترتيب الأعضاء حسب التقييم</div>
+    </div>
     <div class="tbl-wrap">
       <table><thead><tr>
         <th>#</th><th>العضو</th><th>التخصص</th><th>التقييمات</th><th>المتوسط</th><th>المستوى</th>
       </tr></thead><tbody id="staffBody"></tbody></table>
     </div>
 
-    <div class="card-hd" style="margin-bottom:10px;">آراء وملاحظات أولياء الأمور</div>
+    <!-- التقييمات الفردية -->
+    <div class="section-hd" style="margin-bottom:10px;">
+      <div class="section-hd-inner">تفاصيل التقييمات الفردية</div>
+    </div>
+    <div class="tbl-wrap">
+      <table><thead><tr>
+        <th>ولي الأمر</th><th>الطالب</th><th>الصف</th><th>العضو</th><th>التقييم</th>
+      </tr></thead><tbody id="detailBody"></tbody></table>
+    </div>
+
+    <!-- الآراء والملاحظات -->
+    <div class="section-hd" style="margin-bottom:10px;">
+      <div class="section-hd-inner">آراء وملاحظات أولياء الأمور</div>
+      <button class="toggle-btn" id="toggleBtn" onclick="toggleComments()">عرض الكل</button>
+    </div>
     <div class="comments-grid" id="commentsGrid"></div>
 
     <div class="footer">آخر تحديث: <span id="footerTime">—</span></div>
@@ -238,19 +277,42 @@ const DEPT_KEYS = [
   "الاهتمام بالطالب"
 ];
 
+let showAllComments = false;
+let cachedComments = [];
+let pieChartInstance = null;
+
+function toggleComments() {
+  showAllComments = !showAllComments;
+  document.getElementById('toggleBtn').textContent = showAllComments ? 'عرض أقل' : 'عرض الكل';
+  renderComments();
+}
+
+function renderComments() {
+  const cgrid = document.getElementById('commentsGrid');
+  cgrid.innerHTML = '';
+  const toShow = showAllComments ? cachedComments : cachedComments.slice(0, 6);
+  if (toShow.length === 0) {
+    cgrid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">لا توجد ملاحظات بعد</div>';
+  } else {
+    toShow.forEach(c => {
+      cgrid.innerHTML += `<div class="comment"><div class="c-meta">${c.meta}</div><div class="c-text">${c.text}</div></div>`;
+    });
+  }
+}
+
 async function loadData() {
   document.getElementById('loading').style.display = 'flex';
   document.getElementById('content').style.display = 'none';
 
   try {
-   const rows = await new Promise((resolve, reject) => {
-  const callbackName = 'cb_' + Date.now();
-  window[callbackName] = (data) => { resolve(data); delete window[callbackName]; script.remove(); };
-  const script = document.createElement('script');
-  script.src = API + '?callback=' + callbackName;
-  script.onerror = reject;
-  document.head.appendChild(script);
-});
+    const rows = await new Promise((resolve, reject) => {
+      const callbackName = 'cb_' + Date.now();
+      window[callbackName] = (data) => { resolve(data); delete window[callbackName]; script.remove(); };
+      const script = document.createElement('script');
+      script.src = API + '?callback=' + callbackName;
+      script.onerror = reject;
+      document.head.appendChild(script);
+    });
 
     if (!rows.length) {
       document.getElementById('loading').innerHTML = '<div class="empty-state">لا توجد بيانات بعد — في انتظار ردود أولياء الأمور</div>';
@@ -268,14 +330,13 @@ async function loadData() {
 }
 
 function renderDashboard(rows) {
-  // ── إحصائيات أساسية ──
   const parents = new Set(rows.map(r => r["اسم ولي الأمر"] + r["اسم الطالب"])).size;
   const ratings = rows.map(r => r["التقييم"]);
   const excellent = ratings.filter(r => r === "ممتاز").length;
   const good      = ratings.filter(r => r === "جيد").length;
   const improve   = ratings.filter(r => r === "يحتاج تطوير").length;
 
-  // ── تقييم القسم المحاور ──
+  // تقييم المحاور
   const deptSums = {}; const deptCounts = {};
   DEPT_KEYS.forEach(k => { deptSums[k] = 0; deptCounts[k] = 0; });
   rows.forEach(r => {
@@ -284,7 +345,7 @@ function renderDashboard(rows) {
     });
   });
 
-  // ── ترتيب المعلمين ──
+  // ترتيب المعلمين
   const staff = {};
   rows.forEach(r => {
     const key = r["اسم العضو"];
@@ -301,33 +362,29 @@ function renderDashboard(rows) {
     return { ...s, score: Number(score), count: s.ratings.length };
   }).sort((a,b) => b.score - a.score);
 
-  // ── التعليقات ──
-  const comments = rows.filter(r => r["الملاحظة"] && r["الملاحظة"].trim() !== '').slice(-6);
-  const generalComments = rows.filter(r => r["ملاحظات عامة"] && r["ملاحظات عامة"].trim() !== '').slice(-4);
-
-  // ── أعلى تقييم ──
   const top = staffArr[0];
   const avgScore = staffArr.length ? (staffArr.reduce((a,b) => a + b.score, 0) / staffArr.length).toFixed(1) : 0;
 
-  // RENDER METRICS
+  // METRICS
   document.getElementById('metrics').innerHTML = `
     <div class="metric"><div class="m-label">إجمالي المشاركين</div><div class="m-value c-blue">${parents}</div><div class="m-sub">ولي أمر</div></div>
     <div class="metric"><div class="m-label">متوسط التقييم</div><div class="m-value c-amber">${avgScore}</div><div class="m-sub">من 3.0</div></div>
-    <div class="metric"><div class="m-label">أعلى تقييم</div><div class="m-value c-green">${top ? top.name.replace('أ. ','') : '—'}</div><div class="m-sub">${top ? top.subject : ''}</div></div>
+    <div class="metric"><div class="m-label">أعلى تقييم</div><div class="m-value c-green" style="font-size:16px">${top ? top.name.replace('أ. ','') : '—'}</div><div class="m-sub">${top ? top.subject : ''}</div></div>
     <div class="metric"><div class="m-label">يحتاج تطوير</div><div class="m-value c-red">${improve}</div><div class="m-sub">تقييم سلبي</div></div>
   `;
 
-  // RENDER PIE
-  new Chart(document.getElementById('pieChart'), {
+  // PIE CHART
+  if (pieChartInstance) { pieChartInstance.destroy(); }
+  pieChartInstance = new Chart(document.getElementById('pieChart'), {
     type: 'doughnut',
     data: {
       labels: ['ممتاز','جيد','يحتاج تطوير'],
       datasets: [{ data: [excellent, good, improve], backgroundColor: ['#3fb950','#e3b341','#f85149'], borderWidth: 2, borderColor: '#070f1c', hoverOffset: 5 }]
     },
-    options: { responsive:true, maintainAspectRatio:false, cutout:'68%', plugins:{ legend:{ display:false } } }
+    options: { responsive: true, maintainAspectRatio: true, cutout: '65%', plugins: { legend: { display: false } } }
   });
 
-  // RENDER DEPT
+  // DEPT
   const deptEl = document.getElementById('deptRows');
   deptEl.innerHTML = '';
   DEPT_KEYS.forEach(k => {
@@ -340,7 +397,7 @@ function renderDashboard(rows) {
     </div>`;
   });
 
-  // RENDER STAFF TABLE
+  // STAFF TABLE
   const tbody = document.getElementById('staffBody');
   tbody.innerHTML = '';
   staffArr.forEach((s, i) => {
@@ -358,21 +415,30 @@ function renderDashboard(rows) {
     </tr>`;
   });
 
-  // RENDER COMMENTS
-  const cgrid = document.getElementById('commentsGrid');
-  cgrid.innerHTML = '';
-  const allComments = [
+  // DETAIL TABLE
+  const detailBody = document.getElementById('detailBody');
+  detailBody.innerHTML = '';
+  rows.forEach(r => {
+    const badge = r["التقييم"] === "ممتاز" ? '<span class="badge bg">ممتاز</span>'
+      : r["التقييم"] === "جيد" ? '<span class="badge ba">جيد</span>'
+      : '<span class="badge br">يحتاج تطوير</span>';
+    detailBody.innerHTML += `<tr>
+      <td>${r["اسم ولي الأمر"]}</td>
+      <td class="sb">${r["اسم الطالب"]}</td>
+      <td class="sb">${r["الصف"]}</td>
+      <td class="nm">${r["اسم العضو"]}</td>
+      <td>${badge}</td>
+    </tr>`;
+  });
+
+  // COMMENTS
+  const comments = rows.filter(r => r["الملاحظة"] && r["الملاحظة"].trim() !== '');
+  const generalComments = rows.filter(r => r["ملاحظات عامة"] && r["ملاحظات عامة"].trim() !== '');
+  cachedComments = [
     ...comments.map(r => ({ meta: `${r["اسم ولي الأمر"]} — ${r["اسم العضو"]}`, text: r["الملاحظة"] })),
     ...generalComments.map(r => ({ meta: `${r["اسم ولي الأمر"]} — ملاحظة عامة`, text: r["ملاحظات عامة"] }))
-  ].slice(0, 6);
-
-  if (allComments.length === 0) {
-    cgrid.innerHTML = '<div class="empty-state" style="grid-column:1/-1">لا توجد ملاحظات بعد</div>';
-  } else {
-    allComments.forEach(c => {
-      cgrid.innerHTML += `<div class="comment"><div class="c-meta">${c.meta}</div><div class="c-text">${c.text}</div></div>`;
-    });
-  }
+  ];
+  renderComments();
 
   document.getElementById('loading').style.display = 'none';
   document.getElementById('content').style.display = 'block';
