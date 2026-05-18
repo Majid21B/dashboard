@@ -305,13 +305,8 @@ async function loadData() {
   document.getElementById('content').style.display = 'none';
 
   try {
-    const rows = await new Promise((resolve, reject) => {
-      const callbackName = 'cb_' + Date.now();
-      window[callbackName] = (data) => { resolve(data); delete window[callbackName]; script.remove(); };
-      const script = document.createElement('script');
-      script.src = API + '?callback=' + callbackName;
-      script.onerror = reject;
-      document.head.appendChild(script);
+  const res = await fetch(API);
+const rows = await res.json();
     });
 
     if (!rows.length) {
