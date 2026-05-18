@@ -34,8 +34,6 @@ body {
     radial-gradient(ellipse 60% 30% at 50% 0%, rgba(56,139,253,0.06) 0%, transparent 60%),
     radial-gradient(ellipse 30% 20% at 100% 100%, rgba(63,185,80,0.03) 0%, transparent 50%);
 }
-
-/* HEADER */
 .topbar {
   background: var(--bg2);
   border-bottom: 0.5px solid var(--border);
@@ -62,8 +60,6 @@ body {
 }
 .refresh-btn:hover { background: var(--bg4); }
 .last-update { font-size: 10px; color: var(--text2); }
-
-/* LOADING */
 .loading {
   display: flex; flex-direction: column; align-items: center;
   justify-content: center; min-height: 60vh; gap: 16px;
@@ -75,11 +71,7 @@ body {
 }
 @keyframes spin { to { transform: rotate(360deg); } }
 .loading p { font-size: 13px; color: var(--text2); }
-
-/* MAIN */
 .main { padding: 1.25rem 1rem; max-width: 1200px; margin: 0 auto; }
-
-/* METRICS */
 .metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-bottom: 1.25rem; }
 @media(min-width:640px){ .metrics { grid-template-columns: repeat(4, 1fr); } }
 .metric {
@@ -100,11 +92,8 @@ body {
 .c-green { color: var(--green); }
 .c-amber { color: var(--amber); }
 .c-red   { color: var(--red); }
-
-/* GRID */
 .grid2 { display: grid; grid-template-columns: 1fr; gap: 12px; margin-bottom: 1.25rem; }
 @media(min-width:640px){ .grid2 { grid-template-columns: 1fr 1fr; } }
-
 .card {
   background: var(--bg2); border: 0.5px solid var(--border);
   border-radius: 12px; padding: 1.1rem;
@@ -116,19 +105,14 @@ body {
 }
 .card-hd::before {
   content: ''; width: 3px; height: 11px;
-  background: var(--accent); border-radius: 99px;
-  flex-shrink: 0;
+  background: var(--accent); border-radius: 99px; flex-shrink: 0;
 }
-
-/* DEPT BARS */
 .dept-rows { display: flex; flex-direction: column; gap: 11px; }
 .dept-row  { display: flex; align-items: center; gap: 8px; }
 .dept-lbl  { font-size: 11px; color: var(--text2); width: 120px; flex-shrink: 0; text-align: right; }
 .dept-bg   { flex: 1; height: 4px; background: var(--bg3); border-radius: 99px; overflow: hidden; }
 .dept-fill { height: 100%; border-radius: 99px; background: linear-gradient(90deg, var(--accent2), var(--accent)); }
 .dept-num  { font-size: 11px; color: var(--accent2); width: 24px; font-weight: 600; }
-
-/* STAFF TABLE */
 .tbl-wrap { background: var(--bg2); border: 0.5px solid var(--border); border-radius: 12px; overflow: hidden; margin-bottom: 1.25rem; overflow-x: auto; }
 table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 500px; }
 thead tr { background: var(--bg3); }
@@ -147,8 +131,6 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 .bg  { background: rgba(63,185,80,0.1);  color: var(--green); border: 0.5px solid rgba(63,185,80,0.2); }
 .ba  { background: rgba(227,179,65,0.1); color: var(--amber); border: 0.5px solid rgba(227,179,65,0.2); }
 .br  { background: rgba(248,81,73,0.1);  color: var(--red);   border: 0.5px solid rgba(248,81,73,0.2); }
-
-/* COMMENTS */
 .comments-grid { display: grid; grid-template-columns: 1fr; gap: 10px; margin-bottom: 1.25rem; }
 @media(min-width:640px){ .comments-grid { grid-template-columns: 1fr 1fr; } }
 .comment {
@@ -159,20 +141,15 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 .c-meta { font-size: 11px; color: var(--text2); margin-bottom: 5px; display: flex; align-items: center; gap: 5px; }
 .c-meta::before { content: ''; width: 5px; height: 5px; background: var(--accent); border-radius: 50%; flex-shrink: 0; }
 .c-text { font-size: 13px; color: var(--text2); line-height: 1.7; }
-
 .legend { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 8px; }
 .leg { display: flex; align-items: center; gap: 5px; font-size: 12px; color: var(--text2); }
 .leg-dot { width: 8px; height: 8px; border-radius: 2px; }
-
 .footer { text-align: center; font-size: 11px; color: var(--text3); padding: 1.5rem 0; border-top: 0.5px solid var(--border); margin-top: 1rem; }
-
 @keyframes fadeUp { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:translateY(0); } }
 .metric { animation: fadeUp 0.4s ease both; }
 .metric:nth-child(1){animation-delay:.05s}.metric:nth-child(2){animation-delay:.1s}
 .metric:nth-child(3){animation-delay:.15s}.metric:nth-child(4){animation-delay:.2s}
-
 .empty-state { text-align: center; padding: 3rem; color: var(--text2); font-size: 14px; }
-
 .section-hd {
   font-size: 11px; font-weight: 600; color: var(--text2);
   text-transform: uppercase; letter-spacing: 0.7px;
@@ -235,7 +212,6 @@ tr:hover td { background: rgba(56,139,253,0.03); }
       </div>
     </div>
 
-    <!-- ترتيب الأعضاء -->
     <div class="section-hd" style="margin-bottom:10px;">
       <div class="section-hd-inner">ترتيب الأعضاء حسب التقييم</div>
     </div>
@@ -245,7 +221,6 @@ tr:hover td { background: rgba(56,139,253,0.03); }
       </tr></thead><tbody id="staffBody"></tbody></table>
     </div>
 
-    <!-- التقييمات الفردية -->
     <div class="section-hd" style="margin-bottom:10px;">
       <div class="section-hd-inner">تفاصيل التقييمات الفردية</div>
     </div>
@@ -255,7 +230,6 @@ tr:hover td { background: rgba(56,139,253,0.03); }
       </tr></thead><tbody id="detailBody"></tbody></table>
     </div>
 
-    <!-- الآراء والملاحظات -->
     <div class="section-hd" style="margin-bottom:10px;">
       <div class="section-hd-inner">آراء وملاحظات أولياء الأمور</div>
       <button class="toggle-btn" id="toggleBtn" onclick="toggleComments()">عرض الكل</button>
@@ -267,7 +241,7 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 </div>
 
 <script>
-const API = "/api/data":
+const API = "https://docs.google.com/spreadsheets/d/13D3oURB9H6IleGjo8JmtzNJFNtD0O3MDQrPj6HfxwGw/gviz/tq?tqx=out:csv";
 
 const DEPT_KEYS = [
   "المرافق والتجهيزات",
@@ -300,15 +274,33 @@ function renderComments() {
   }
 }
 
+function parseCSV(csv) {
+  const lines = csv.split('\n').filter(l => l.trim());
+  const headers = lines[0].split(',').map(h => h.replace(/"/g,'').trim());
+  return lines.slice(1).map(line => {
+    const vals = [];
+    let current = '';
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      if (line[i] === '"') { inQuotes = !inQuotes; }
+      else if (line[i] === ',' && !inQuotes) { vals.push(current); current = ''; }
+      else { current += line[i]; }
+    }
+    vals.push(current);
+    const row = {};
+    headers.forEach((h, i) => { row[h] = (vals[i] || '').trim(); });
+    return row;
+  });
+}
+
 async function loadData() {
   document.getElementById('loading').style.display = 'flex';
   document.getElementById('content').style.display = 'none';
 
   try {
-const res = await fetch(API);
-const rows = await res.json();
-
-  
+    const res = await fetch(API);
+    const csv = await res.text();
+    const rows = parseCSV(csv);
 
     if (!rows.length) {
       document.getElementById('loading').innerHTML = '<div class="empty-state">لا توجد بيانات بعد — في انتظار ردود أولياء الأمور</div>';
@@ -332,7 +324,6 @@ function renderDashboard(rows) {
   const good      = ratings.filter(r => r === "جيد").length;
   const improve   = ratings.filter(r => r === "يحتاج تطوير").length;
 
-  // تقييم المحاور
   const deptSums = {}; const deptCounts = {};
   DEPT_KEYS.forEach(k => { deptSums[k] = 0; deptCounts[k] = 0; });
   rows.forEach(r => {
@@ -341,7 +332,6 @@ function renderDashboard(rows) {
     });
   });
 
-  // ترتيب المعلمين
   const staff = {};
   rows.forEach(r => {
     const key = r["اسم العضو"];
@@ -361,7 +351,6 @@ function renderDashboard(rows) {
   const top = staffArr[0];
   const avgScore = staffArr.length ? (staffArr.reduce((a,b) => a + b.score, 0) / staffArr.length).toFixed(1) : 0;
 
-  // METRICS
   document.getElementById('metrics').innerHTML = `
     <div class="metric"><div class="m-label">إجمالي المشاركين</div><div class="m-value c-blue">${parents}</div><div class="m-sub">ولي أمر</div></div>
     <div class="metric"><div class="m-label">متوسط التقييم</div><div class="m-value c-amber">${avgScore}</div><div class="m-sub">من 3.0</div></div>
@@ -369,7 +358,6 @@ function renderDashboard(rows) {
     <div class="metric"><div class="m-label">يحتاج تطوير</div><div class="m-value c-red">${improve}</div><div class="m-sub">تقييم سلبي</div></div>
   `;
 
-  // PIE CHART
   if (pieChartInstance) { pieChartInstance.destroy(); }
   pieChartInstance = new Chart(document.getElementById('pieChart'), {
     type: 'doughnut',
@@ -380,7 +368,6 @@ function renderDashboard(rows) {
     options: { responsive: true, maintainAspectRatio: true, cutout: '65%', plugins: { legend: { display: false } } }
   });
 
-  // DEPT
   const deptEl = document.getElementById('deptRows');
   deptEl.innerHTML = '';
   DEPT_KEYS.forEach(k => {
@@ -393,7 +380,6 @@ function renderDashboard(rows) {
     </div>`;
   });
 
-  // STAFF TABLE
   const tbody = document.getElementById('staffBody');
   tbody.innerHTML = '';
   staffArr.forEach((s, i) => {
@@ -411,7 +397,6 @@ function renderDashboard(rows) {
     </tr>`;
   });
 
-  // DETAIL TABLE
   const detailBody = document.getElementById('detailBody');
   detailBody.innerHTML = '';
   rows.forEach(r => {
@@ -427,7 +412,6 @@ function renderDashboard(rows) {
     </tr>`;
   });
 
-  // COMMENTS
   const comments = rows.filter(r => r["الملاحظة"] && r["الملاحظة"].trim() !== '');
   const generalComments = rows.filter(r => r["ملاحظات عامة"] && r["ملاحظات عامة"].trim() !== '');
   cachedComments = [
