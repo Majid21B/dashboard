@@ -241,7 +241,7 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 </div>
 
 <script>
-const API = "https://docs.google.com/spreadsheets/d/13D3oURB9H6IleGjo8JmtzNJFNtD0O3MDQrPj6HfxwGw/gviz/tq?tqx=out:csv";
+const API = "https://script.google.com/macros/s/AKfycbz7L_CEU1BNVgXT_TuFLVMwA_Ky9D-dAfjKYj8jMdWzGFn6PmfTvUyukJTQtQjhJIsbTg/exec";
 
 const DEPT_KEYS = [
   "المرافق والتجهيزات",
@@ -274,33 +274,13 @@ function renderComments() {
   }
 }
 
-function parseCSV(csv) {
-  const lines = csv.split('\n').filter(l => l.trim());
-  const headers = lines[0].split(',').map(h => h.replace(/"/g,'').trim());
-  return lines.slice(1).map(line => {
-    const vals = [];
-    let current = '';
-    let inQuotes = false;
-    for (let i = 0; i < line.length; i++) {
-      if (line[i] === '"') { inQuotes = !inQuotes; }
-      else if (line[i] === ',' && !inQuotes) { vals.push(current); current = ''; }
-      else { current += line[i]; }
-    }
-    vals.push(current);
-    const row = {};
-    headers.forEach((h, i) => { row[h] = (vals[i] || '').trim(); });
-    return row;
-  });
-}
-
 async function loadData() {
   document.getElementById('loading').style.display = 'flex';
   document.getElementById('content').style.display = 'none';
 
   try {
     const res = await fetch(API);
-    const csv = await res.text();
-    const rows = parseCSV(csv);
+    const rows = await res.json();
 
     if (!rows.length) {
       document.getElementById('loading').innerHTML = '<div class="empty-state">لا توجد بيانات بعد — في انتظار ردود أولياء الأمور</div>';
@@ -412,8 +392,8 @@ function renderDashboard(rows) {
     </tr>`;
   });
 
-  const comments = rows.filter(r => r["الملاحظة"] && r["الملاحظة"].trim() !== '');
-  const generalComments = rows.filter(r => r["ملاحظات عامة"] && r["ملاحظات عامة"].trim() !== '');
+  const comments = rows.filter(r => r["الملاحظة"] && String(r["الملاحظة"]).trim() !== '');
+  const generalComments = rows.filter(r => r["ملاحظات عامة"] && String(r["ملاحظات عامة"]).trim() !== '');
   cachedComments = [
     ...comments.map(r => ({ meta: `${r["اسم ولي الأمر"]} — ${r["اسم العضو"]}`, text: r["الملاحظة"] })),
     ...generalComments.map(r => ({ meta: `${r["اسم ولي الأمر"]} — ملاحظة عامة`, text: r["ملاحظات عامة"] }))
