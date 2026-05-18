@@ -267,7 +267,7 @@ tr:hover td { background: rgba(56,139,253,0.03); }
 </div>
 
 <script>
-const API = "https://script.google.com/macros/s/AKfycby7VXnu6VdFZgT3XK8uHfNk5h8G7vygs9HzqioxrY2Ey4hBhVxGnw5Zfddx1RUNCKKKBQ/exec";
+const API = "/api/data":
 
 const DEPT_KEYS = [
   "المرافق والتجهيزات",
@@ -305,15 +305,10 @@ async function loadData() {
   document.getElementById('content').style.display = 'none';
 
   try {
-const rows = await new Promise((resolve, reject) => {
-  const callbackName = 'cb_' + Date.now();
-  window[callbackName] = (data) => { resolve(data); delete window[callbackName]; script.remove(); };
-  const script = document.createElement('script');
-  script.src = API + '?callback=' + callbackName;
-  script.onerror = reject;
-  document.head.appendChild(script);
-});
-    });
+const res = await fetch(API);
+const rows = await res.json();
+
+  
 
     if (!rows.length) {
       document.getElementById('loading').innerHTML = '<div class="empty-state">لا توجد بيانات بعد — في انتظار ردود أولياء الأمور</div>';
